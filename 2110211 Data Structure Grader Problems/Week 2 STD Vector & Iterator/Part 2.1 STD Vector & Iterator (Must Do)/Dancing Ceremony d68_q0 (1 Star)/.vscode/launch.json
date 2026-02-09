@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/nubfightformydream/Documents/Intania 108 Courses/Year 3 Semester 1/2110211 Data Structure/Data Grader Problems/Part 2 std::vector , vector iterator/Dancing Ceremony d68_q0",
+      "program": "/Users/nubfightformydream/Documents/Intania 108 Courses/Year 3 Semester 1/2110211 Data Structure/Data Grader Problems/Part 2 std::vector , vector iterator/Dancing Ceremony d68_q0/build/Debug/outDebug"
+    }
+  ]
+}
