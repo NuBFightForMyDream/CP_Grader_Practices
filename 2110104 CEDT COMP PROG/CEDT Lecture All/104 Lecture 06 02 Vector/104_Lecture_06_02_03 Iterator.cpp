@@ -27,7 +27,7 @@ int main() {
     // Another Auto Examples
     vector <int> prime_number = {2,3,5,7,11,13} ; 
     auto v2 = vector<int>() ; // v2 = vector<int> 
-    auto v3(v1) ; // v3 copied value from v1 (v3 = vector<int>)
+    auto v3(prime_number) ; // v3 copied value from v1 (v3 = vector<int>)
     auto looper = v3.end() ; // looper = iterator type 
 
     // vector of pair 

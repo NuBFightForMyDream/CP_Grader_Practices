@@ -19,7 +19,7 @@ int main() {
 
     // Upgrade function with array VS vector (comparison)
         // watch in Tuple-Pair Lecture 
-        // array have to prepare size , but vector don;t have to
+        // array have to prepare size , but vector don't have to
     vector< pair<string , string> > student_grades ; // vector of pair
     string stu_id , grade ;
     cout << "Enter Student ID and Grade : " << endl ; 

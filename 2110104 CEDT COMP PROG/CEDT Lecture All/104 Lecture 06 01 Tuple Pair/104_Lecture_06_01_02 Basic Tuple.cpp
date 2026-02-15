@@ -9,7 +9,7 @@ int main() {
     tuple<string , float , int> t3 = make_tuple("DADDY12" , 54.50 , 5) ; 
 
     // change value in tuple
-    get<0>(t2)  = "HAPPYNATTEE" ; 
+    get<0>(t2)  = "HAPPYNATTEE" ; // like get position 0 then change value
     cout << get<0>(t2) << get<1>(t2) << endl ;
     
     // get element using get<pos>

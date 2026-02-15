@@ -3,6 +3,7 @@
 using namespace std ; 
 
 string to_str( tuple<int,int> & e) { // e represent for each tuple
+    // & e is for real reference (not copy tuple to e)
     return "[" + to_string(get<0>(e)) + ", " + to_string(get<1>(e)) + "]" ;
 }
 
@@ -16,7 +17,7 @@ int main() {
         cout << to_str( array_of_tuple[i] ) << endl ; // print each element 
     }
 
-    // find max value
+    // find max value 
     tuple<int , int> max_tuple = array_of_tuple[0] ; // first value
     for (int i = 1 ; i < N ; i++) { // start from index 1 
         if (array_of_tuple[i] > max_tuple) {
