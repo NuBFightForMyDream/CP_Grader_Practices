@@ -52,6 +52,18 @@ int main() {
     auto it = p.begin() ; 
     for (auto n : {4,3,1,2}) 
         it = p.insert(it , n) ;
-        // insert 
-    // test 
+        // return iterator for new value inserted -> 2 1 3 4
+        
+    // Note : vector behavior
+    // 1 : erasing won't change iterator
+    vector<int> num = {12,34,56,78};
+    auto start = num.begin() ; // pointed at 12 -> 34 (first ele)
+    auto i = num.erase(start) ; // 12 deleted -> i pointed at 34 (first ele)
+    auto j = num.erase(start+2) ; // 78 deleted -> j pointed at end (next to last element)
+
+    // 2 : insert / push back can change iterator
+    vector<int> num_2 = {98,76,54,32,10} ; 
+    auto start2 = num_2.begin() ; 
+    auto i2 = num_2.insert( start2 + 1 , 108 ) ; // insert 108 before 76 -> i2 point at 76 (next to 108)
+
 }
