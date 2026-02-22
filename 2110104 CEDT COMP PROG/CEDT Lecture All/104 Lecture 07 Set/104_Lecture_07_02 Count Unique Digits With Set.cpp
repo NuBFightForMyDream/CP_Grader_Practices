@@ -27,5 +27,8 @@ vector<char> count_unique_digits_vector(string numbers) {
         }
     }
     return found_num ; 
+}
 
+int main() { 
+    
 }
