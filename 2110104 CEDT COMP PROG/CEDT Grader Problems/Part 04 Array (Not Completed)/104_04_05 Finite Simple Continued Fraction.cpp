@@ -20,5 +20,6 @@ int main() {
         cin >> fraction[i] ; 
     }
 
+
     
 }

@@ -33,5 +33,4 @@ int main() {
     cout << (s1 > s2) << endl ; // 0 = false
 
     // vector compare each pair (so , it'll return false)
-
 }
