@@ -8,6 +8,7 @@
 
 using namespace std;
 
+// call function for defining later
 void printUniqueWords1(string filename);
 void printUniqueWords2(string filename);
 void printUniqueWords3(string filename);
@@ -25,7 +26,7 @@ int main() {
     return 0;
 }
 //-------------------------------------------------------
-bool search(string words[], int n, string w) {
+bool search(string words[], int n, string w) { // array words
     for (int i = 0; i < n; i++) {
         if (words[i] == w) return true;
     }
@@ -37,7 +38,7 @@ void printWord(string filename) {
     int n = 0;
 
     Tokenizer tokenizer(filename);
-    while(tokenizer.hasNext()) {
+    while(tokenizer.hasNext()) { // check if tokenizer has next word 
         string token = tokenizer.next();
         n++;
     }
@@ -45,38 +46,43 @@ void printWord(string filename) {
     cout << "A total of " << n << " words" << endl;
 }
 //-------------------------------------------------------
-// big enough array
+// big enough array : static array
 void printUniqueWords1(string filename) {
-    string words[100000];
+    string words[100000]; // cons : waste of space reserved 
     int n = 0;
 
     Tokenizer tokenizer(filename);
     while(tokenizer.hasNext()) {
         string token = tokenizer.next();
         if (!search(words,n,token)) words[n++] = token;
+        // if word not found , add word to index n then increment n 
     }
     tokenizer.close();
     cout << "A total of " << n << " words" << endl;
 }
 //-------------------------------------------------------
-// expandable array
+// expandable array : dynamic array 
 void printUniqueWords2(string filename) {
+    // pros : less memory
+    // cons : super slow
     int cap = 1;
-    string *words;
-    words = new string[cap];
+    string *words; // * for dynamic array 
+    words = new string[cap]; // define new value with "new"
     int n = 0;
     Tokenizer tokenizer(filename);
     while(tokenizer.hasNext()) {
         string token = tokenizer.next();
         if (!search(words,n,token)) {
+            // check if storage full
                 if (n == cap) {
+                    // define new array with double size of arr
                     string *a = new string[2*cap];
-                    for (int i=0; i<n; i++) a[i] = words[i];
-                    delete[] words;
-                    words = a;
-                    cap *= 2;
+                    for (int i=0; i<n; i++) a[i] = words[i]; // copy data into a 
+                    delete[] words; // delete data in words
+                    words = a; // word point to a 
+                    cap *= 2; // expand cap
                 }
-                words[n++] = token;
+                words[n++] = token; // add word to words
         }
     }
     tokenizer.close();
@@ -98,12 +104,14 @@ void printUniqueWords3(string filename) {
 //-------------------------------------------------------
 // set
 void printUniqueWords4(string filename) {
+    // pros : good at checkingdata if exists
+    // cons : bad at seeing data inside
     set<string> words;
     Tokenizer tokenizer(filename);
     while(tokenizer.hasNext()) {
         string token = tokenizer.next();
-        //if (words.end() == find(words.begin(), words.end(), token))
-        if (words.end() == words.find(token))
+        //if (words.end() == find(words.begin(), words.end(), token)) -> too slow by using find algorithm
+        if (words.end() == words.find(token)) // too fast -> using find in set
             words.insert(token);
     }
     tokenizer.close();
