@@ -3,8 +3,23 @@
 using namespace std;
 
 vector<string> punch(vector<string> &v, vector<string>::iterator it,int k) {
-    //write some code here
-    //don’t forget to return something
+    // write some code here
+    // don’t forget to return something
+    
+    // 1 : define left & right bound 
+    // check distance if out of bound -> it = v.begin() + j ;
+    vector<string>::iterator left_bound , right_bound ; 
+    if ( distance(v.begin() , it) <= k ) left_bound = v.begin() ; 
+    else left_bound = it - k ; 
+
+    if ( distance(it , v.end()) <= k ) right_bound = v.end() ; 
+    else right_bound = it + k + 1 ; // + 1 for .end() case -> move 1 right for right bound
+    
+    // 2 : delete with iterator -> delete all elements in bound with .erase(left , right)
+    v.erase(left_bound , right_bound) ;  
+
+    // 3 : return vector
+    return v ; 
     
 }
 int main() {
