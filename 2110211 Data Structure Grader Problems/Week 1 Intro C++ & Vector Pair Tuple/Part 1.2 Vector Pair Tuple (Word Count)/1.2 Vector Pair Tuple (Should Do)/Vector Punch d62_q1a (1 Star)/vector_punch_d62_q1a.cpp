@@ -13,7 +13,7 @@ vector<string> punch(vector<string> &v, vector<string>::iterator it,int k) {
     else left_bound = it - k ; 
 
     if ( distance(it , v.end()) <= k ) right_bound = v.end() ; 
-    else right_bound = it + k + 1 ; // + 1 for .end() case -> move 1 right for right bound
+    else right_bound = it + k + 1 ; // + 1 for .end() case -> move 1 right for including right bound
     
     // 2 : delete with iterator -> delete all elements in bound with .erase(left , right)
     v.erase(left_bound , right_bound) ;  
