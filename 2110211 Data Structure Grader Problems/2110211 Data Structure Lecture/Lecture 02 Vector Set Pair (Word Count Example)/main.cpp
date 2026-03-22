@@ -104,7 +104,7 @@ void printUniqueWords3(string filename) {
 //-------------------------------------------------------
 // set
 void printUniqueWords4(string filename) {
-    // pros : good at checkingdata if exists
+    // pros : good at checking data if exists
     // cons : bad at seeing data inside
     set<string> words;
     Tokenizer tokenizer(filename);
