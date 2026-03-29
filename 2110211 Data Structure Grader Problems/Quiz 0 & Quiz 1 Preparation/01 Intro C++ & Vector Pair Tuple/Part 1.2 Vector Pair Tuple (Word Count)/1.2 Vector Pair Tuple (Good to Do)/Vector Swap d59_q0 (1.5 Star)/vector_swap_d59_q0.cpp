@@ -4,6 +4,17 @@ using namespace std;
 
 // function of vector swap 
 void vector_swap(vector<int> &v1,vector<int> &v2, int start1, int end1, int start2, int end2) {
+    // copy vector from original (only in range we want)
+    vector<int> sliced_v1(v1.begin() + start1 , v1.begin() + end1) ; 
+    vector<int> sliced_v2(v2.begin() + start2 , v2.begin() + end2) ; 
+
+    // erase old data with range
+    v1.erase( v1.begin() + start1, v1.begin() + end1 ) ;
+    v2.erase( v2.begin() + start2, v2.begin() + end2 ) ;
+    
+    // insert vector with new data
+    v1.insert( v1.begin() + start1 , sliced_v2.begin() , sliced_v2.end() ) ; // insert at pos ... with sliced_vector
+    v2.insert( v2.begin() + start2 , sliced_v1.begin() , sliced_v1.end() ) ; 
     
 }
 int main() {
